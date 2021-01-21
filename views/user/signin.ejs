@@ -1,0 +1,54 @@
+<%- include ../partials/header %> <%- include ../partials/categories-navbar %>
+
+<div class="l-form">
+  <!-- <div class="shape1"></div>
+    <div class="shape2"></div> -->
+
+  <div class="form">
+    <img
+      src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/unlock_24mb.svg"
+      alt="" class="form__img">
+
+    <form action="/user/signin" method="POST" class="form__content">
+      <h1 class="form__title">Welcome</h1>
+
+      <!-- Flash message -->
+      <% if(errorMsg !=null && errorMsg.length>0) {%>
+      <div id="flash-msg" class="alert alert-danger">
+        <%=errorMsg %>
+      </div>
+      <%}%>
+        
+        <div class="form__div form__div-one">
+          <div class="form__icon">
+            <i class='bx bx-at'></i>
+          </div>
+
+          <div class="form__div-input">
+            <label for="email" class="form__label">Email</label>
+            <input type="email" class="form__input" name="email" id="email"/>
+          </div>
+        </div> 
+
+        <div class="form__div">
+          <div class="form__icon">
+            <i class='bx bx-lock' ></i>
+          </div>
+
+          <div class="form__div-input">
+            <label for="password" class="form__label">Password</label>
+            <input type="password" class="form__input" name="password" id="password" />
+          </div>
+        </div>
+
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+      <button type="submit" class="form__button"> Login </button>
+
+      <div class="form__social">
+        <span class="form__social-text">Or <a href="http://localhost:5000/user/signup">Sign Up</a></span>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include ../partials/footer %>
