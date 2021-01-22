@@ -90,7 +90,7 @@
                   <div class="price">$<%= products[i].price %></div>
                 </div>
       
-                <% if(products[i].available) {%>
+                <% if(products[i].status === "available") {%>
                   <a href="/add-to-cart/<%=products[i]._id%>" class="btn btn-block btn-secondary button-style mt-auto mb-2">
                     Add to Shopping Cart
                   </a>
@@ -121,7 +121,7 @@
                   <div class="price">$<%= products[i].price %></div>
                 </div>
       
-                <% if(products[i].available) {%>
+                <% if(products[i].status === "available") {%>
                   <a href="/add-to-cart/<%=products[i]._id%>" class="btn btn-block btn-secondary button-style mt-auto mb-2">
                     Add to Shopping Cart
                   </a>
@@ -152,7 +152,7 @@
                   <div class="price">$<%= products[i].price %></div>
                 </div>
 
-                <% if(products[i].available) {%>
+                <% if(products[i].status === "available") {%>
                   <a href="/add-to-cart/<%=products[i]._id%>" class="btn btn-block btn-secondary button-style mt-auto mb-2">
                     Add to Shopping Cart
                   </a>

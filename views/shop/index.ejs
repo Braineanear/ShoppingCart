@@ -80,7 +80,7 @@
             <div class="price">$<%= product.price %></div>
           </div>
       
-          <% if(product.available) {%>
+          <% if(product.status === 'available') {%>
             <a href="/add-to-cart/<%=product._id%>" class="btn btn-block btn-secondary button-style mt-auto mb-2">
               Add to Shopping Cart
             </a>

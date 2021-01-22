@@ -33,7 +33,9 @@ router.post("/new", async (req, res) => {
       imagePath: req.body.imagePath,
       price: req.body.price,
       manufacturer: req.body.manufacturer || '',
-      available: req.body.availability,
+      status: req.body.status,
+      size: req.body.size,
+      color: req.body.color,
       category: categ._id
     });
     res.redirect("shop/product");

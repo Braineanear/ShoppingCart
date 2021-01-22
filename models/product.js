@@ -29,9 +29,22 @@ const productSchema = mongoose.Schema({
   manufacturer: {
     type: String,
   },
-  available: {
-    type: Boolean,
-    default: true
+  status: {
+    type: String,
+    enum: ['Available', 'Not Available'],
+    default: 'Available',
+    required: true,
+  },
+  size: {
+    type: String,
+    enum: ['Small', 'Medium', 'Large', 'XLarge', 'XXLarge'],
+    default: 'M',
+    required: true,
+  },
+  color: {
+    type: String,
+    default: 'black',
+    required: true
   },
   createdAt: {
     type: Date,
