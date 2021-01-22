@@ -31,14 +31,14 @@ const productSchema = mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['Available', 'Not Available'],
-    default: 'Available',
+    enum: ['available', 'not-available'],
+    default: 'available',
     required: true,
   },
   size: {
     type: String,
     enum: ['Small', 'Medium', 'Large', 'XLarge', 'XXLarge'],
-    default: 'M',
+    default: 'Medium',
     required: true,
   },
   color: {
