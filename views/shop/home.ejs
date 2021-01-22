@@ -89,16 +89,26 @@
                   
                   <div class="price">$<%= products[i].price %></div>
                 </div>
-      
-                <% if(products[i].status === "available") {%>
+                <%if(login){
+                  if(currentUser.role === 'user'){
+                    if(products[i].status === 'available') {%>
+                      <a href="/add-to-cart/<%=products[i]._id%>" class="btn btn-block btn-secondary button-style mt-auto mb-2">
+                        Add to Shopping Cart
+                      </a>
+                    <% } else { %>
+                      <a href="#" class="btn btn-block btn-danger button-style-danger mt-2 mb-2">
+                        Sold out
+                      </a>  
+                    <%}}}else{%>
+                  <% if(products[i].status === 'available') {%>
                   <a href="/add-to-cart/<%=products[i]._id%>" class="btn btn-block btn-secondary button-style mt-auto mb-2">
                     Add to Shopping Cart
                   </a>
                 <% } else { %>
                   <a href="#" class="btn btn-block btn-danger button-style-danger mt-2 mb-2">
                     Sold out
-                  </a>
-                <%} %>
+                  </a>  
+                <%} }%>
               </div>
             </div>
           <%}%>
@@ -120,16 +130,26 @@
                   </a>
                   <div class="price">$<%= products[i].price %></div>
                 </div>
-      
-                <% if(products[i].status === "available") {%>
+                <%if(login){
+                  if(currentUser.role === 'user'){
+                    if(products[i].status === 'available') {%>
+                      <a href="/add-to-cart/<%=products[i]._id%>" class="btn btn-block btn-secondary button-style mt-auto mb-2">
+                        Add to Shopping Cart
+                      </a>
+                    <% } else { %>
+                      <a href="#" class="btn btn-block btn-danger button-style-danger mt-2 mb-2">
+                        Sold out
+                      </a>  
+                    <%}}}else{%>
+                  <% if(products[i].status === 'available') {%>
                   <a href="/add-to-cart/<%=products[i]._id%>" class="btn btn-block btn-secondary button-style mt-auto mb-2">
                     Add to Shopping Cart
                   </a>
                 <% } else { %>
                   <a href="#" class="btn btn-block btn-danger button-style-danger mt-2 mb-2">
                     Sold out
-                  </a>
-                <%} %>
+                  </a>  
+                <%} }%>
               </div>
             </div>
           <%}%>
@@ -151,16 +171,26 @@
                   </a>
                   <div class="price">$<%= products[i].price %></div>
                 </div>
-
-                <% if(products[i].status === "available") {%>
+                <%if(login){
+                  if(currentUser.role === 'user'){
+                    if(products[i].status === 'available') {%>
+                      <a href="/add-to-cart/<%=products[i]._id%>" class="btn btn-block btn-secondary button-style mt-auto mb-2">
+                        Add to Shopping Cart
+                      </a>
+                    <% } else { %>
+                      <a href="#" class="btn btn-block btn-danger button-style-danger mt-2 mb-2">
+                        Sold out
+                      </a>  
+                    <%}}}else{%>
+                  <% if(products[i].status === 'available') {%>
                   <a href="/add-to-cart/<%=products[i]._id%>" class="btn btn-block btn-secondary button-style mt-auto mb-2">
                     Add to Shopping Cart
                   </a>
                 <% } else { %>
                   <a href="#" class="btn btn-block btn-danger button-style-danger mt-2 mb-2">
                     Sold out
-                  </a>
-                <%} %>
+                  </a>  
+                <%} }%>
               </div>
             </div>
           <%}%>

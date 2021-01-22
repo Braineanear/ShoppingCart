@@ -1,6 +1,6 @@
 const express = require("express");
 const csrf = require("csurf");
-const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
+const stripe = require("stripe")('sk_test_51ICXnhCiDXQhJi1a6KiNavryu1ycC8bHOh7nswd2jO0DjPiJW6Jldiagmv0ZrlxNW4lfVLYoBTh2J9Vx00RR6so400v3MVUdkF');
 const Product = require("../models/product");
 const Category = require("../models/category");
 const Cart = require("../models/cart");
@@ -227,15 +227,10 @@ router.post("/checkout", middleware.isLoggedIn, async (req, res) => {
     {
       amount: cart.totalCost * 100,
       currency: "usd",
-      source: req.body.stripeToken,
+      // source: req.body.stripeToken,
       description: "Test charge",
     },
     function (err, charge) {
-      if (err) {
-        req.flash("error", err.message);
-        console.log(err);
-        return res.redirect("/checkout");
-      }
       const order = new Order({
         user: req.user,
         cart: {
@@ -244,7 +239,6 @@ router.post("/checkout", middleware.isLoggedIn, async (req, res) => {
           items: cart.items,
         },
         address: req.body.address,
-        paymentId: charge.id,
       });
       order.save(async (err, newOrder) => {
         if (err) {

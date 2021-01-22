@@ -14,7 +14,6 @@ const connectDB = require("./config/db");
 const indexRouter = require("./routes/index");
 const productsRouter = require("./routes/products");
 const usersRouter = require("./routes/user");
-const pagesRouter = require("./routes/pages");
 require("./config/passport");
 
 const app = express();
@@ -85,7 +84,6 @@ app.use(function (req, res, next) {
 //routes config
 app.use("/products", productsRouter);
 app.use("/user", usersRouter);
-app.use("/pages", pagesRouter);
 app.use("/", indexRouter);
 
 // catch 404 and forward to error handler

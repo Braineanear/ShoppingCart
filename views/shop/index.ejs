@@ -79,8 +79,18 @@
             
             <div class="price">$<%= product.price %></div>
           </div>
-      
-          <% if(product.status === 'available') {%>
+          <%if(login){
+            if(currentUser.role === 'user'){
+              if(product.status === 'available') {%>
+                <a href="/add-to-cart/<%=product._id%>" class="btn btn-block btn-secondary button-style mt-auto mb-2">
+                  Add to Shopping Cart
+                </a>
+              <% } else { %>
+                <a href="#" class="btn btn-block btn-danger button-style-danger mt-2 mb-2">
+                  Sold out
+                </a>  
+              <%}}}else{%>
+            <% if(product.status === 'available') {%>
             <a href="/add-to-cart/<%=product._id%>" class="btn btn-block btn-secondary button-style mt-auto mb-2">
               Add to Shopping Cart
             </a>
@@ -88,7 +98,7 @@
             <a href="#" class="btn btn-block btn-danger button-style-danger mt-2 mb-2">
               Sold out
             </a>  
-          <%} %>
+          <%} }%>
         </div>
       </div>
     <% }) %>

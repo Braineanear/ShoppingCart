@@ -44,10 +44,6 @@ const orderSchema = Schema({
     type: String,
     required: true,
   },
-  paymentId: {
-    type: String,
-    required: true,
-  },
   createdAt: {
     type: Date,
     default: Date.now,
