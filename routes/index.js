@@ -210,7 +210,7 @@ router.get("/checkout", middleware.isLoggedIn, async (req, res) => {
 
   const errMsg = req.flash("error")[0];
   res.render("shop/checkout", {
-=    csrfToken: req.csrfToken(),
+    csrfToken: req.csrfToken(),
     errorMsg,
     pageName: "Checkout",
   });
