@@ -206,10 +206,11 @@ router.get("/checkout", middleware.isLoggedIn, async (req, res) => {
     return res.redirect("/shopping-cart");
   }
   //load the cart with the session's cart's id from the db
-  cart = await Cart.findById(req.session.cart._id);
+  const cart = await Cart.findById(req.session.cart._id);
 
   const errMsg = req.flash("error")[0];
   res.render("shop/checkout", {
+    total: cart.totalCost,
     csrfToken: req.csrfToken(),
     errorMsg,
     pageName: "Checkout",
@@ -231,6 +232,11 @@ router.post("/checkout", middleware.isLoggedIn, async (req, res) => {
     function (err, charge) {
       const order = new Order({
         user: req.user,
+        cart: {
+          totalQty: cart.totalQty,
+          totalCost: cart.totalCost,
+          items: cart.items,
+        },
         address: req.body.address,
       });
       order.save(async (err, newOrder) => {
