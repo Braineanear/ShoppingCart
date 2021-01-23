@@ -232,8 +232,6 @@ router.post("/checkout", middleware.isLoggedIn, async (req, res) => {
       const order = new Order({
         user: req.user,
         cart: {
-          totalQty: cart.totalQty,
-          totalCost: cart.totalCost,
           items: cart.items,
         },
         address: req.body.address,
