@@ -31,6 +31,7 @@ async function seedDB() {
   await seedCateg("Denim & Jeans");
   await seedCateg("Trousers & Pants");
   await seedCateg("Skirts");
+  await seedCateg("Makeup");
 
   await closeDB();
 }

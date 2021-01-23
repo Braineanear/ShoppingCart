@@ -225,7 +225,6 @@ router.post("/checkout", middleware.isLoggedIn, async (req, res) => {
   const cart = await Cart.findById(req.session.cart._id);
   stripe.charges.create(
     {
-      amount: cart.totalCost * 100,
       currency: "usd",
       // source: req.body.stripeToken,
       description: "Test charge",
