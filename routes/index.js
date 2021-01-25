@@ -209,6 +209,7 @@ router.get("/checkout", middleware.isLoggedIn, async (req, res) => {
   const cart = await Cart.findById(req.session.cart._id);
 
   const errMsg = req.flash("error")[0];
+  if(cart.totalCost == null) cart.totalCost = 0;
   res.render("shop/checkout", {
     total: cart.totalCost,
     csrfToken: req.csrfToken(),
