@@ -351,7 +351,8 @@ hr.gradient-style {
 }
 
 .img-small {
-  height: 5%;
+  height: 100px;
+  width: 100px;
   margin: 2px;
 }
 
@@ -702,9 +703,4 @@ footer {
         width: 700px;
         justify-self: center;
     }
-}
-
-.my-auto img {
-  height: 20%;
-  width: 20%;
 }
